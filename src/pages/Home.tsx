@@ -54,21 +54,21 @@ export default function Home() {
       {/* チーム紹介（投稿リスト風） */}
       <section className="py-6 md:py-12 bg-white border-2 md:border-4 border-black rounded-2xl md:rounded-3xl p-3 md:p-8 mb-6 md:mb-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
         <h2 className="pop-heading !text-sm md:!text-4xl mb-4 md:mb-8 whitespace-nowrap">Choose Your Team</h2>
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8 text-left mb-6 md:mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-6 text-left mb-6 md:mb-8">
           {teams.slice(0, 4).map((team) => (
-            <Link key={team.id} to={`/order/${team.id}`} className="border-2 md:border-4 border-black rounded-xl overflow-hidden hover:rotate-1 transition-transform block group cursor-pointer flex flex-col">
-              <div className="aspect-square bg-gray-200 overflow-hidden relative">
+            <Link key={team.id} to={`/order/${team.id}`} className="border-2 md:border-4 border-black rounded-xl overflow-hidden hover:rotate-1 transition-transform block group cursor-pointer flex flex-col md:flex-row">
+              <div className="aspect-square md:aspect-auto md:w-2/5 bg-gray-200 overflow-hidden relative">
                 <img src={team.image} alt={team.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" referrerPolicy="no-referrer" />
               </div>
-              <div className="p-2 md:p-4 bg-white border-t-2 md:border-t-4 border-black flex-grow flex flex-col">
+              <div className="p-2 md:p-4 bg-white border-t-2 md:border-t-0 md:border-l-4 border-black flex-grow flex flex-col md:w-3/5">
                 <div>
-                  <span className={`${team.tagColor} text-white px-1.5 py-0.5 md:px-2 md:py-1 text-[10px] md:text-sm mb-1 md:mb-2 inline-block font-black border border-black md:border-2 shadow-[1px_1px_0_0_#000] md:shadow-[2px_2px_0_0_#000]`}>{team.tag}</span>
+                  <span className={`${team.tagColor} text-white px-1.5 py-0.5 md:px-2 md:py-1 text-[10px] md:text-xs mb-1 md:mb-2 inline-block font-black border border-black md:border-2 shadow-[1px_1px_0_0_#000] md:shadow-[2px_2px_0_0_#000]`}>{team.tag}</span>
                 </div>
-                <h4 className="text-sm md:text-2xl font-black uppercase group-hover:text-red-500 transition-colors line-clamp-1">{team.name}</h4>
-                <p className="text-[10px] md:text-sm mt-1 md:mt-2 leading-tight text-gray-700 flex-grow line-clamp-2 md:line-clamp-none">{team.description}</p>
+                <h4 className="text-sm md:text-lg font-black uppercase group-hover:text-red-500 transition-colors line-clamp-1">{team.name}</h4>
+                <p className="text-[10px] md:text-xs mt-1 md:mt-2 leading-tight text-gray-700 flex-grow line-clamp-2 md:line-clamp-3">{team.description}</p>
                 <div className="mt-2 md:mt-4 flex flex-col md:flex-row md:items-end gap-0 md:gap-2">
-                  <span className="text-gray-400 line-through font-bold text-xs md:text-lg">¥{Math.floor(team.basePrice * 1.3).toLocaleString()}</span>
-                  <p className="text-sm md:text-2xl font-black text-red-500">¥{team.basePrice.toLocaleString()} <span className="text-[10px] md:text-xs text-black">〜</span></p>
+                  <span className="text-gray-400 line-through font-bold text-xs md:text-sm">¥{Math.floor(team.basePrice * 1.3).toLocaleString()}</span>
+                  <p className="text-sm md:text-lg font-black text-red-500">¥{team.basePrice.toLocaleString()} <span className="text-[10px] md:text-xs text-black">〜</span></p>
                 </div>
               </div>
             </Link>
