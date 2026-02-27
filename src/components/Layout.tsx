@@ -1,0 +1,67 @@
+import { Link, Outlet, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { ShoppingCart } from 'lucide-react';
+import { useCart } from '../context/CartContext';
+
+export default function Layout() {
+  const { pathname } = useLocation();
+  const { cartItems } = useCart();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return (
+    <div className="font-bold min-h-screen flex flex-col">
+      {/* ナビゲーション */}
+      <nav className="sticky top-0 z-50 bg-white border-b-4 border-black px-4 py-2">
+        <div className="max-w-4xl mx-auto flex justify-between items-center">
+          <Link to="/" className="font-black text-2xl uppercase italic">
+            <span className="text-black">AFRICA</span>
+            <span className="text-gray-700">GIFT</span>
+          </Link>
+          <div className="flex items-center gap-4">
+            <Link to="/service" className="font-black uppercase hover:text-red-500 transition-colors">Service</Link>
+            <Link to="/cart" className="relative font-black uppercase hover:text-red-500 transition-colors flex items-center">
+              <ShoppingCart className="w-6 h-6" />
+              {cartItems.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full border border-black">
+                  {cartItems.length}
+                </span>
+              )}
+            </Link>
+            <Link to="/order" className="bg-black text-white px-4 py-2 rounded-full text-sm">今すぐ注文</Link>
+          </div>
+        </div>
+      </nav>
+
+      <div className="flex-grow">
+        <Outlet />
+      </div>
+
+      {/* フッター */}
+      <footer className="bg-black text-white pt-12 pb-24 mt-20">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <div className="pop-heading text-4xl mb-6 italic">一生忘れないGIFTを！</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm mb-12">
+            <Link to="/tokushoho" className="hover:text-yellow-400 underline">特定商取引法</Link>
+            <Link to="/privacy" className="hover:text-yellow-400 underline">プライバシーポリシー</Link>
+            <Link to="/terms" className="hover:text-yellow-400 underline">利用規約</Link>
+            <Link to="/contact" className="hover:text-yellow-400 underline">お問い合わせ</Link>
+          </div>
+          <p className="text-xs text-gray-500">&copy; 2026 AFRICAGIFT. ALL RIGHTS RESERVED.</p>
+        </div>
+      </footer>
+
+      {/* スマホ固定CTA */}
+      <div className="fixed bottom-0 left-0 right-0 p-4 flex gap-2 z-50 md:max-w-md md:mx-auto">
+        <a href="https://line.me" className="flex-1 bg-green-500 text-white font-black py-4 rounded-full shadow-[4px_4px_0_0_#000] border-2 border-black text-center">
+          LINE相談
+        </a>
+        <Link to="/order" className="flex-1 bg-red-500 text-white font-black py-4 rounded-full shadow-[4px_4px_0_0_#000] border-2 border-black text-center">
+          今すぐ注文
+        </Link>
+      </div>
+    </div>
+  );
+}
