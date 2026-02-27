@@ -18,19 +18,21 @@ body {
     color: black;
 }
 
-.pop-heading {
-    font-family: 'Montserrat', sans-serif;
-    @apply font-black uppercase text-5xl;
-}
+@layer components {
+  .pop-heading {
+      font-family: 'Montserrat', sans-serif;
+      @apply font-black uppercase text-5xl;
+  }
 
-.pop-card {
-    @apply bg-white border-4 border-black rounded-xl p-6;
-    box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
-}
+  .pop-card {
+      @apply bg-white border-4 border-black rounded-xl p-6;
+      box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+  }
 
-.pop-button {
-    @apply bg-black text-white font-black py-4 px-8 rounded-full uppercase transition-transform hover:scale-105 active:scale-95 inline-block text-center;
-    box-shadow: 4px 4px 0px 0px rgba(239, 68, 68, 1);
+  .pop-button {
+      @apply bg-black text-white font-black py-4 px-8 rounded-full uppercase transition-transform hover:scale-105 active:scale-95 inline-block text-center;
+      box-shadow: 4px 4px 0px 0px rgba(239, 68, 68, 1);
+  }
 }
 
 .accent-text {

@@ -15,22 +15,22 @@ export default function Layout() {
     <div className="font-bold min-h-screen flex flex-col">
       {/* ナビゲーション */}
       <nav className="sticky top-0 z-50 bg-white border-b-4 border-black px-4 py-2">
-        <div className="max-w-4xl mx-auto flex justify-between items-center">
-          <Link to="/" className="font-black text-2xl uppercase italic">
+        <div className="max-w-4xl mx-auto flex justify-between items-center gap-2">
+          <Link to="/" className="font-black text-lg md:text-2xl uppercase italic whitespace-nowrap">
             <span className="text-black">AFRICA</span>
             <span className="text-gray-700">GIFT</span>
           </Link>
-          <div className="flex items-center gap-4">
-            <Link to="/service" className="font-black uppercase hover:text-red-500 transition-colors">Service</Link>
+          <div className="flex items-center gap-2 md:gap-4">
+            <Link to="/service" className="font-black text-xs md:text-base uppercase hover:text-red-500 transition-colors">Service</Link>
             <Link to="/cart" className="relative font-black uppercase hover:text-red-500 transition-colors flex items-center">
-              <ShoppingCart className="w-6 h-6" />
+              <ShoppingCart className="w-5 h-5 md:w-6 md:h-6" />
               {cartItems.length > 0 && (
                 <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full border border-black">
                   {cartItems.length}
                 </span>
               )}
             </Link>
-            <Link to="/order" className="bg-black text-white px-4 py-2 rounded-full text-sm">今すぐ注文</Link>
+            <Link to="/order" className="bg-black text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full text-[10px] md:text-sm whitespace-nowrap">今すぐ注文</Link>
           </div>
         </div>
       </nav>
@@ -40,10 +40,10 @@ export default function Layout() {
       </div>
 
       {/* フッター */}
-      <footer className="bg-black text-white pt-12 pb-24 mt-20">
+      <footer className="bg-black text-white pt-8 md:pt-12 pb-24 mt-12 md:mt-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="pop-heading text-4xl mb-6 italic">一生忘れないGIFTを！</div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm mb-12">
+          <div className="pop-heading !text-sm md:!text-4xl mb-4 md:mb-6 italic whitespace-nowrap">一生忘れないGIFTを！</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 text-[10px] md:text-sm mb-8 md:mb-12">
             <Link to="/tokushoho" className="hover:text-yellow-400 underline">特定商取引法</Link>
             <Link to="/privacy" className="hover:text-yellow-400 underline">プライバシーポリシー</Link>
             <Link to="/terms" className="hover:text-yellow-400 underline">利用規約</Link>

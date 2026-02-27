@@ -136,67 +136,67 @@ export default function Cart() {
 
   return (
     <main className="max-w-4xl mx-auto px-4 text-center pb-24">
-      <section className="py-12 md:py-16 spring-in">
-        <h1 className="pop-heading mb-4 leading-none">
-          <span className="text-3xl block text-black">SHOPPING CART</span>
-          カート
+      <section className="py-8 md:py-16 spring-in">
+        <h1 className="pop-heading mb-2 md:mb-4 leading-none">
+          <span className="text-lg md:text-3xl block text-black whitespace-nowrap">SHOPPING CART</span>
+          <span className="text-sm md:text-2xl">カート</span>
         </h1>
       </section>
 
       {cartItems.length > 0 ? (
-        <div className="bg-white border-4 border-black rounded-3xl p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] text-left">
-          <h2 className="text-2xl font-black mb-6 border-b-4 border-black pb-2">ご注文内容の確認</h2>
+        <div className="bg-white border-2 md:border-4 border-black rounded-3xl p-4 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] md:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] text-left">
+          <h2 className="text-lg md:text-2xl font-black mb-4 md:mb-6 border-b-2 md:border-b-4 border-black pb-1 md:pb-2">ご注文内容の確認</h2>
           
-          <div className="space-y-8 mb-8">
+          <div className="space-y-4 md:space-y-8 mb-6 md:mb-8">
             {cartItems.map((item) => (
-              <div key={item.id} className="flex flex-col md:flex-row gap-6 pb-8 border-b-2 border-gray-200 last:border-0 last:pb-0 relative">
+              <div key={item.id} className="flex flex-row gap-3 md:gap-6 pb-4 md:pb-8 border-b-2 border-gray-200 last:border-0 last:pb-0 relative">
                 <button 
                   onClick={() => removeFromCart(item.id)}
-                  className="absolute top-0 right-0 text-gray-400 hover:text-red-500 font-bold text-sm flex items-center gap-1 transition-colors"
+                  className="absolute top-0 right-0 text-gray-400 hover:text-red-500 font-bold text-[10px] md:text-sm flex items-center gap-1 transition-colors"
                 >
-                  <span className="text-lg">×</span> 削除
+                  <span className="text-sm md:text-lg">×</span> 削除
                 </button>
-                <img src={item.team.image} alt={item.team.name} className="w-32 h-32 object-cover rounded-lg border-4 border-black" />
-                <div className="flex-grow pr-12">
-                  <h3 className="text-xl font-black uppercase mb-2">{item.team.name}</h3>
-                  <p className="text-gray-700 font-bold mb-1">基本料金: ¥{item.team.basePrice.toLocaleString()}</p>
+                <img src={item.team.image} alt={item.team.name} className="w-16 h-16 md:w-32 md:h-32 object-cover rounded-lg border-2 md:border-4 border-black shrink-0" />
+                <div className="flex-grow pr-8 md:pr-12">
+                  <h3 className="text-sm md:text-xl font-black uppercase mb-1 md:mb-2 leading-tight">{item.team.name}</h3>
+                  <p className="text-[10px] md:text-sm text-gray-700 font-bold mb-1">基本料金: ¥{item.team.basePrice.toLocaleString()}</p>
                   
-                  <div className="mt-4 space-y-1 text-sm font-bold text-gray-600">
-                    {item.musicOption === 'youtube' && <p>+ 音楽指定 (YouTube等): ¥1,200</p>}
+                  <div className="mt-1 md:mt-4 space-y-0.5 md:space-y-1 text-[8px] md:text-sm font-bold text-gray-600">
+                    {item.musicOption === 'youtube' && <p>+ 音楽指定: ¥1,200</p>}
                     {item.musicOption === 'birthday' && <p>+ バースデーソング: ¥500</p>}
-                    {item.photoPrint && <p>+ 写真プリントアウト: ¥1,000</p>}
+                    {item.photoPrint && <p>+ 写真プリント: ¥1,000</p>}
                     {item.photoKiss && <p>+ 写真へのキス: ¥200</p>}
-                    {item.cakeOption === '1500' && <p>+ ケーキ寄付（小）: ¥1,500</p>}
-                    {item.cakeOption === '2000' && <p>+ ケーキ寄付（大）: ¥2,000</p>}
+                    {item.cakeOption === '1500' && <p>+ ケーキ寄付(小): ¥1,500</p>}
+                    {item.cakeOption === '2000' && <p>+ ケーキ寄付(大): ¥2,000</p>}
                   </div>
                 </div>
-                <div className="text-right md:w-48 flex flex-col justify-end">
-                  <p className="text-sm font-bold text-gray-500 mb-1">小計</p>
-                  <div className="flex items-end justify-end gap-2">
-                    <span className="text-gray-400 line-through font-bold text-lg">¥{Math.floor(item.totalPrice * 1.3).toLocaleString()}</span>
-                    <p className="text-2xl font-black text-red-500">¥{item.totalPrice.toLocaleString()}</p>
+                <div className="text-right flex flex-col justify-end shrink-0">
+                  <p className="text-[8px] md:text-sm font-bold text-gray-500 mb-0.5 md:mb-1">小計</p>
+                  <div className="flex flex-col md:flex-row items-end justify-end gap-0 md:gap-2">
+                    <span className="text-gray-400 line-through font-bold text-[10px] md:text-lg">¥{Math.floor(item.totalPrice * 1.3).toLocaleString()}</span>
+                    <p className="text-sm md:text-2xl font-black text-red-500">¥{item.totalPrice.toLocaleString()}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="border-t-4 border-black pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <Link to="/order" className="font-bold underline hover:text-red-500">
+          <div className="border-t-2 md:border-t-4 border-black pt-4 md:pt-6 flex flex-row justify-between items-center gap-2 md:gap-4">
+            <Link to="/order" className="font-bold underline hover:text-red-500 text-[10px] md:text-base whitespace-nowrap">
               お買い物を続ける
             </Link>
-            <div className="flex items-center gap-6">
+            <div className="flex flex-row items-center gap-2 md:gap-6">
               <div className="text-right">
-                <p className="text-sm font-bold text-gray-500 mb-1">合計金額</p>
-                <div className="flex items-end justify-end gap-3">
-                  <span className="text-gray-400 line-through font-bold text-xl">¥{Math.floor(grandTotal * 1.3).toLocaleString()}</span>
-                  <p className="text-3xl font-black text-red-500">¥{grandTotal.toLocaleString()}</p>
+                <p className="text-[8px] md:text-sm font-bold text-gray-500 mb-0.5 md:mb-1">合計金額</p>
+                <div className="flex items-end justify-end gap-1 md:gap-3">
+                  <span className="text-gray-400 line-through font-bold text-[10px] md:text-xl hidden sm:inline">¥{Math.floor(grandTotal * 1.3).toLocaleString()}</span>
+                  <p className="text-lg md:text-3xl font-black text-red-500">¥{grandTotal.toLocaleString()}</p>
                 </div>
               </div>
               <button 
                 onClick={handleCheckout}
                 disabled={isCheckingOut}
-                className="bg-black text-white font-black py-4 px-12 rounded-full uppercase text-xl transition-transform hover:scale-105 active:scale-95 border-2 border-black shadow-[4px_4px_0_0_#ef4444] disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed"
+                className="bg-black text-white font-black py-2 px-3 md:py-4 md:px-12 rounded-full uppercase text-[10px] md:text-xl transition-transform hover:scale-105 active:scale-95 border-2 border-black shadow-[2px_2px_0_0_#ef4444] md:shadow-[4px_4px_0_0_#ef4444] disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed whitespace-nowrap"
               >
                 {isCheckingOut ? '処理中...' : 'レジへ進む'}
               </button>
