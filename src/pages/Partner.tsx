@@ -6,7 +6,7 @@ export default function Partner() {
   const t = {
     ja: {
       title: 'OFFICIAL PARTNER',
-      subtitle: 'モザンビークのいのちをつなぐ会',
+      subtitle: 'モザンビークのいのちを\nつなぐ会',
       aboutTitle: '団体概要',
       aboutDesc: '「モザンビークのいのちをつなぐ会」は、アフリカ南東部に位置するモザンビーク共和国において、医療、教育、そして雇用創出の支援を行う一般社団法人です。現地の人々が自立して生活できる社会の実現を目指し、草の根の活動を続けています。',
       activitiesTitle: '主な活動内容',
@@ -23,7 +23,7 @@ export default function Partner() {
     },
     en: {
       title: 'OFFICIAL PARTNER',
-      subtitle: 'Mozambique Inochi wo Tsunagu Kai',
+      subtitle: 'Mozambique Inochi wo\nTsunagu Kai',
       aboutTitle: 'About the Organization',
       aboutDesc: '"Mozambique Inochi wo Tsunagu Kai" is a general incorporated association that supports medical care, education, and job creation in the Republic of Mozambique, located in southeastern Africa. We continue grassroots activities aiming to realize a society where local people can live independently.',
       activitiesTitle: 'Main Activities',
@@ -37,23 +37,6 @@ export default function Partner() {
       collabDesc1: 'Our service (AFRICA GIFT) has officially partnered with "Mozambique Inochi wo Tsunagu Kai" to ensure that the production of surprise videos does not end as mere entertainment, but leads to solid support for the local community.',
       collabDesc2: 'A portion of the video sales is not only paid as fair compensation to the performers, but also directly donated to local medical and educational support activities through the organization. Your warm feeling of "wanting to make someone happy" turns into the power to create the future of Africa across the sea.',
       websiteBtn: 'See details on the official website',
-    },
-    zh: {
-      title: '官方合作伙伴',
-      subtitle: '莫桑比克生命相连会',
-      aboutTitle: '组织简介',
-      aboutDesc: '“莫桑比克生命相连会”是一家在位于非洲东南部的莫桑比克共和国提供医疗、教育和创造就业支持的综合社团法人。我们继续开展基层活动，旨在实现当地人民能够独立生活的社会。',
-      activitiesTitle: '主要活动',
-      medicalTitle: '医疗支持',
-      medicalDesc: '我们向当地诊所提供医疗用品，并通过卫生教育开展传染病预防活动。',
-      eduTitle: '教育支持',
-      eduDesc: '我们建设儿童可以安全学习的学校，捐赠学习用品，并运营奖学金计划。',
-      jobTitle: '创造就业（与我们服务合作）',
-      jobDesc: '通过雇佣当地青年作为表演者并支付他们公平的报酬，我们直接支持他们改善生计和实现经济独立。',
-      collabTitle: '关于与AFRICA GIFT的合作',
-      collabDesc1: '我们的服务（AFRICA GIFT）已与“莫桑比克生命相连会”正式合作，以确保惊喜视频的制作不仅停留在娱乐层面，还能为当地社区带来实质性的支持。',
-      collabDesc2: '视频销售的一部分不仅作为公平的报酬支付给表演者，还通过该组织直接捐赠给当地的医疗和教育支持活动。您“想让某人开心”的温暖心意，将跨越海洋，转化为创造非洲未来的力量。',
-      websiteBtn: '在官方网站上查看详情',
     }
   }[language];
 
@@ -62,7 +45,7 @@ export default function Partner() {
       <section className="py-12 md:py-16 spring-in">
         <h1 className="pop-heading mb-4 leading-none">
           <span className="text-3xl block text-black">{t.title}</span>
-          {t.subtitle}
+          <span className="text-2xl md:text-5xl block mt-2 whitespace-pre-line">{t.subtitle}</span>
         </h1>
       </section>
 
@@ -77,33 +60,33 @@ export default function Partner() {
 
         <div className="space-y-8">
           <div>
-            <h3 className="font-black text-2xl mb-4 border-b-4 border-black inline-block pb-2">{t.aboutTitle}</h3>
-            <p className="text-gray-700 font-bold leading-relaxed">
+            <h3 className="font-black text-xl md:text-2xl mb-4 border-b-4 border-black inline-block pb-2">{t.aboutTitle}</h3>
+            <p className="text-sm md:text-base text-gray-700 font-bold leading-relaxed">
               {t.aboutDesc}
             </p>
           </div>
           
           <div>
-            <h3 className="font-black text-2xl mb-4 border-b-4 border-black inline-block pb-2">{t.activitiesTitle}</h3>
-            <ul className="space-y-4 text-gray-700 font-bold">
+            <h3 className="font-black text-xl md:text-2xl mb-4 border-b-4 border-black inline-block pb-2">{t.activitiesTitle}</h3>
+            <ul className="space-y-4 text-sm md:text-base text-gray-700 font-bold">
               <li className="flex items-start gap-2">
                 <span className="text-xl">🏥</span>
                 <div>
-                  <h4 className="text-black text-lg">{t.medicalTitle}</h4>
+                  <h4 className="text-black text-base md:text-lg">{t.medicalTitle}</h4>
                   <p>{t.medicalDesc}</p>
                 </div>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-xl">📚</span>
                 <div>
-                  <h4 className="text-black text-lg">{t.eduTitle}</h4>
+                  <h4 className="text-black text-base md:text-lg">{t.eduTitle}</h4>
                   <p>{t.eduDesc}</p>
                 </div>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-xl">💼</span>
                 <div>
-                  <h4 className="text-black text-lg">{t.jobTitle}</h4>
+                  <h4 className="text-black text-base md:text-lg">{t.jobTitle}</h4>
                   <p>{t.jobDesc}</p>
                 </div>
               </li>
@@ -111,11 +94,11 @@ export default function Partner() {
           </div>
 
           <div>
-            <h3 className="font-black text-2xl mb-4 border-b-4 border-black inline-block pb-2">{t.collabTitle}</h3>
-            <p className="text-gray-700 font-bold leading-relaxed mb-4">
+            <h3 className="font-black text-xl md:text-2xl mb-4 border-b-4 border-black inline-block pb-2">{t.collabTitle}</h3>
+            <p className="text-sm md:text-base text-gray-700 font-bold leading-relaxed mb-4">
               {t.collabDesc1}
             </p>
-            <p className="text-gray-700 font-bold leading-relaxed">
+            <p className="text-sm md:text-base text-gray-700 font-bold leading-relaxed">
               {t.collabDesc2}
             </p>
           </div>
@@ -125,7 +108,7 @@ export default function Partner() {
               href="https://tsunagukai.com/information/konnatokoro" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-block bg-black text-white font-black py-4 px-12 rounded-full uppercase text-xl transition-transform hover:scale-105 active:scale-95 border-2 border-black shadow-[4px_4px_0_0_#ef4444]"
+              className="inline-block bg-black text-white font-black py-3 px-6 md:py-4 md:px-12 rounded-full uppercase text-sm md:text-xl transition-transform hover:scale-105 active:scale-95 border-2 border-black shadow-[4px_4px_0_0_#ef4444]"
             >
               {t.websiteBtn}
             </a>

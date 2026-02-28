@@ -61,7 +61,7 @@ export default function Home() {
       step3: 'Get Video!',
       useCasesTitle: 'Perfect for these occasions',
       useCases: ['Birthday', 'Couple Anniversary', 'Wedding Anniversary', 'Passing Exam', '60th/Longevity Celebration', 'Farewell/Retirement', 'Corporate Event/Anniversary', 'Anything Else!'],
-      partnerTitle: 'Mozambique Life Support Association',
+      partnerTitle: 'Mozambique Inochi wo\nTsunagu Kai',
       partnerDesc: 'We partner with local NGOs in Mozambique and donate a portion of our sales to support local education and job creation.',
       sdgsTitle: 'SDGs Goals We Contribute To',
       sdgs1: 'No Poverty',
@@ -201,7 +201,7 @@ export default function Home() {
           <div className="absolute top-0 right-0 bg-yellow-400 border-b-2 md:border-b-4 border-l-2 md:border-l-4 border-black px-2 py-1 md:px-6 md:py-2 font-black italic text-[8px] md:text-base">
             OFFICIAL PARTNER
           </div>
-          <h2 className="pop-heading !text-sm md:!text-4xl mb-3 md:mb-6 mt-5 md:mt-4 leading-tight whitespace-nowrap">{t.partnerTitle}</h2>
+          <h2 className="pop-heading !text-sm md:!text-4xl mb-3 md:mb-6 mt-5 md:mt-4 leading-tight whitespace-pre-line">{t.partnerTitle}</h2>
           <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
             <div className="w-1/2 md:w-1/3">
               <div className="aspect-square bg-gray-200 rounded-xl border-2 md:border-4 border-black overflow-hidden">
