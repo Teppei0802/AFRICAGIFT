@@ -24,7 +24,7 @@ export default function Home() {
       step1: 'プランとメッセージ\nを選択',
       step2: '決済完了後、\n現地へ発注',
       step3: 'Get Video!',
-      useCasesTitle: 'こんなシーンで使われています',
+      useCasesTitle: 'こんなシーンで使われています！',
       useCases: ['誕生日', 'カップルの記念日', '結婚記念日', '合格祝い', '還暦・長寿のお祝い', '送別・退職祝い', '企業イベント・周年記念', 'その他何でも'],
       partnerTitle: '一般社団法人 モザンビークのいのちをつなぐ会',
       partnerDesc: '私たちは、モザンビークの現地NGOと提携し、売上の一部を現地の教育支援や雇用創出に還元しています。',
@@ -84,7 +84,7 @@ export default function Home() {
       <section className="py-8 md:py-20 spring-in">
         <h1 className="pop-heading mb-4 md:mb-6 leading-none md:leading-none flex flex-col gap-1 md:gap-0">
           <span className="text-sm md:text-3xl block text-black">{t.heroTitle1}</span>
-          <span className="text-base md:text-4xl">{t.heroTitle2}</span><span className="accent-text !text-sm md:!text-8xl mt-1 md:mt-0">{t.heroTitle3}</span>
+          <span className="text-base md:text-4xl">{t.heroTitle2}</span><span className="accent-text !text-2xl md:!text-8xl mt-1 md:mt-0">{t.heroTitle3}</span>
         </h1>
         
         <div className="pop-card mb-6 md:mb-10 overflow-hidden relative group p-0 border-2 md:border-4 border-black">
@@ -136,32 +136,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ベネフィットセクション */}
-      <section className="py-6 md:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8">
-          <div className="pop-card p-4 md:p-6 text-left">
-            <div className="text-2xl md:text-4xl mb-2 md:mb-4">✨</div>
-            <h3 className="text-sm md:text-xl font-black mb-2 uppercase italic">{t.benefit1Title}</h3>
-            <p className="text-xs md:text-base leading-relaxed font-bold whitespace-pre-line">{t.benefit1Text}</p>
-          </div>
-          <div className="pop-card p-4 md:p-6 text-left">
-            <div className="text-2xl md:text-4xl mb-2 md:mb-4">💰</div>
-            <h3 className="text-sm md:text-xl font-black mb-2 uppercase italic">{t.benefit2Title}</h3>
-            <p className="text-xs md:text-base leading-relaxed font-bold whitespace-pre-line">{t.benefit2Text}</p>
-          </div>
-          <div className="pop-card p-4 md:p-6 text-left">
-            <div className="text-2xl md:text-4xl mb-2 md:mb-4">🌍</div>
-            <h3 className="text-sm md:text-xl font-black mb-2 uppercase italic">{t.benefit3Title}</h3>
-            <p className="text-xs md:text-base leading-relaxed font-bold whitespace-pre-line">{t.benefit3Text}</p>
-          </div>
-        </div>
-        <div className="text-left px-2 md:px-8">
-          <p className="text-sm md:text-lg font-bold leading-relaxed whitespace-pre-line">
-            {t.benefitDesc}
-          </p>
-        </div>
-      </section>
-
       {/* 注文ステップ */}
       <section className="py-6 md:py-12" id="order">
         <h2 className="pop-heading !text-sm md:!text-4xl mb-4 md:mb-8 whitespace-nowrap">{t.howToOrder}</h2>
@@ -180,6 +154,32 @@ export default function Home() {
             <div className="w-8 h-8 md:w-16 md:h-16 bg-red-500 text-white rounded-full flex items-center justify-center text-sm md:text-3xl font-black mx-auto mb-2 md:mb-4">3</div>
             <p className="font-black italic uppercase text-[10px] md:text-base leading-tight">{t.step3}</p>
           </div>
+        </div>
+      </section>
+
+      {/* ベネフィットセクション */}
+      <section className="py-6 md:py-12">
+        <div className="grid grid-cols-3 gap-2 md:gap-6 mb-8">
+          <div className="pop-card p-2 md:p-6 text-left">
+            <div className="text-xl md:text-4xl mb-1 md:mb-4">✨</div>
+            <h3 className="text-[10px] md:text-xl font-black mb-1 md:mb-2 uppercase italic">{t.benefit1Title}</h3>
+            <p className="text-[8px] md:text-base leading-relaxed font-bold whitespace-pre-line">{t.benefit1Text}</p>
+          </div>
+          <div className="pop-card p-2 md:p-6 text-left">
+            <div className="text-xl md:text-4xl mb-1 md:mb-4">💰</div>
+            <h3 className="text-[10px] md:text-xl font-black mb-1 md:mb-2 uppercase italic">{t.benefit2Title}</h3>
+            <p className="text-[8px] md:text-base leading-relaxed font-bold whitespace-pre-line">{t.benefit2Text}</p>
+          </div>
+          <div className="pop-card p-2 md:p-6 text-left">
+            <div className="text-xl md:text-4xl mb-1 md:mb-4">🌍</div>
+            <h3 className="text-[10px] md:text-xl font-black mb-1 md:mb-2 uppercase italic">{t.benefit3Title}</h3>
+            <p className="text-[8px] md:text-base leading-relaxed font-bold whitespace-pre-line">{t.benefit3Text}</p>
+          </div>
+        </div>
+        <div className="text-left px-2 md:px-8">
+          <p className="text-[10px] md:text-lg font-bold leading-relaxed whitespace-pre-line">
+            {t.benefitDesc}
+          </p>
         </div>
       </section>
 

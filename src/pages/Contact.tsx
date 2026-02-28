@@ -42,6 +42,20 @@ export default function Contact() {
     }
   }[language];
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const type = formData.get('type');
+    const content = formData.get('content');
+
+    const subject = encodeURIComponent(`【お問い合わせ】${type}について`);
+    const body = encodeURIComponent(`お名前: ${name}\nメールアドレス: ${email}\nお問い合わせ種別: ${type}\n\nお問い合わせ内容:\n${content}`);
+    
+    window.location.href = `mailto:t.saisho0802@gmail.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <main className="max-w-4xl mx-auto px-4 text-center pb-24">
       <section className="py-12 md:py-16 spring-in">
@@ -55,13 +69,14 @@ export default function Contact() {
       </section>
 
       <section className="bg-white border-4 border-black rounded-3xl p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] text-left max-w-2xl mx-auto">
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit}>
           <div>
             <label className="block font-black text-lg mb-2">
               {t.name} <span className="text-red-500">*</span>
             </label>
             <input 
               type="text" 
+              name="name"
               className="w-full border-4 border-black rounded-lg p-3 font-bold focus:outline-none focus:border-red-500 transition-colors" 
               placeholder={t.namePlaceholder} 
               required
@@ -74,6 +89,7 @@ export default function Contact() {
             </label>
             <input 
               type="email" 
+              name="email"
               className="w-full border-4 border-black rounded-lg p-3 font-bold focus:outline-none focus:border-red-500 transition-colors" 
               placeholder={t.emailPlaceholder} 
               required
@@ -84,12 +100,12 @@ export default function Contact() {
             <label className="block font-black text-lg mb-2">
               {t.type} <span className="text-red-500">*</span>
             </label>
-            <select className="w-full border-4 border-black rounded-lg p-3 font-bold bg-white focus:outline-none focus:border-red-500 cursor-pointer" required>
+            <select name="type" className="w-full border-4 border-black rounded-lg p-3 font-bold bg-white focus:outline-none focus:border-red-500 cursor-pointer" required>
               <option value="">{t.typeSelect}</option>
-              <option value="order">{t.typeOrder}</option>
-              <option value="service">{t.typeService}</option>
-              <option value="corporate">{t.typeCorporate}</option>
-              <option value="other">{t.typeOther}</option>
+              <option value={t.typeOrder}>{t.typeOrder}</option>
+              <option value={t.typeService}>{t.typeService}</option>
+              <option value={t.typeCorporate}>{t.typeCorporate}</option>
+              <option value={t.typeOther}>{t.typeOther}</option>
             </select>
           </div>
 
@@ -98,6 +114,7 @@ export default function Contact() {
               {t.content} <span className="text-red-500">*</span>
             </label>
             <textarea 
+              name="content"
               className="w-full border-4 border-black rounded-lg p-3 font-bold focus:outline-none focus:border-red-500 transition-colors" 
               rows={6} 
               placeholder={t.contentPlaceholder}
@@ -105,7 +122,7 @@ export default function Contact() {
             ></textarea>
           </div>
 
-          <button type="button" className="w-full bg-black text-white font-black py-4 rounded-full uppercase text-xl transition-transform hover:scale-105 active:scale-95 border-2 border-black shadow-[4px_4px_0_0_#ef4444]">
+          <button type="submit" className="w-full bg-black text-white font-black py-4 rounded-full uppercase text-xl transition-transform hover:scale-105 active:scale-95 border-2 border-black shadow-[4px_4px_0_0_#ef4444]">
             {t.submit}
           </button>
         </form>

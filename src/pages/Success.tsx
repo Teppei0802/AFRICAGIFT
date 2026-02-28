@@ -32,6 +32,16 @@ export default function Success() {
       step2: 'We will usually send you a download link for the completed video via email within 2-4 days.',
       step3: 'Please look forward to the completed video!',
       backToHome: 'Back to Home',
+    },
+    zh: {
+      successTitle: '付款已完成！',
+      thankYou: '感谢您的订购。',
+      message: '我们在非洲的朋友们将开始准备\n为您所爱的人送上最棒的惊喜！',
+      nextSteps: '后续步骤',
+      step1: '包含您订单详情的确认邮件将发送到您注册的电子邮件地址。（*如果由于系统原因您没有收到邮件，请联系我们。）',
+      step2: '我们通常会在2-4天内通过电子邮件向您发送完成视频的下载链接。',
+      step3: '请期待完成的视频！',
+      backToHome: '返回首页',
     }
   }[language];
 

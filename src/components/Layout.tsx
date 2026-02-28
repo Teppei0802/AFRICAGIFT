@@ -1,6 +1,6 @@
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
-import { ShoppingCart, Globe } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { ShoppingCart, Globe, Menu, X } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -8,9 +8,11 @@ export default function Layout() {
   const { pathname } = useLocation();
   const { cartItems } = useCart();
   const { language, toggleLanguage } = useLanguage();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    setIsMenuOpen(false);
   }, [pathname]);
 
   const t = {
@@ -24,6 +26,8 @@ export default function Layout() {
       terms: '利用規約',
       contact: 'お問い合わせ',
       line: 'LINE相談',
+      chooseTeam: 'CHOOSE YOUR TEAM',
+      partner: 'パートナー団体紹介',
     },
     en: {
       service: 'Service',
@@ -35,6 +39,8 @@ export default function Layout() {
       terms: 'Terms of Use',
       contact: 'Contact Us',
       line: 'LINE Chat',
+      chooseTeam: 'Choose Your Team',
+      partner: 'Partner Organization',
     }
   }[language];
 
@@ -43,13 +49,21 @@ export default function Layout() {
       {/* ナビゲーション */}
       <nav className="sticky top-0 z-50 bg-white border-b-4 border-black px-4 py-2">
         <div className="max-w-4xl mx-auto flex justify-between items-center gap-2">
-          <Link to="/" className="font-black text-lg md:text-2xl uppercase italic whitespace-nowrap">
-            <span className="text-black">AFRICA</span>
-            <span className="text-gray-700">GIFT</span>
-          </Link>
+          <div className="flex items-center gap-2">
+            <button 
+              className="md:hidden p-1"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+            <Link to="/" className="font-black text-lg md:text-2xl uppercase italic whitespace-nowrap">
+              <span className="text-black">AFRICA</span>
+              <span className="text-gray-700">GIFT</span>
+            </Link>
+          </div>
           <div className="flex items-center gap-2 md:gap-4">
-            <Link to="/service" className="font-black text-[10px] md:text-base uppercase hover:text-red-500 transition-colors">{t.service}</Link>
-            <Link to="/voices" className="font-black text-[10px] md:text-base uppercase hover:text-red-500 transition-colors">{t.voices}</Link>
+            <Link to="/service" className="hidden md:block font-black text-[10px] md:text-base uppercase hover:text-red-500 transition-colors">{t.service}</Link>
+            <Link to="/voices" className="hidden md:block font-black text-[10px] md:text-base uppercase hover:text-red-500 transition-colors">{t.voices}</Link>
             <Link to="/cart" className="relative font-black uppercase hover:text-red-500 transition-colors flex items-center">
               <ShoppingCart className="w-4 h-4 md:w-6 md:h-6" />
               {cartItems.length > 0 && (
@@ -66,6 +80,21 @@ export default function Layout() {
           </div>
         </div>
       </nav>
+
+      {/* モバイルメニュー */}
+      {isMenuOpen && (
+        <div className="md:hidden fixed inset-0 top-[52px] bg-white z-40 border-b-4 border-black overflow-y-auto">
+          <div className="flex flex-col p-4 gap-4 text-lg font-black">
+            <Link to="/service" className="border-b-2 border-gray-200 pb-2 hover:text-red-500">{t.service}</Link>
+            <Link to="/order" className="border-b-2 border-gray-200 pb-2 hover:text-red-500">{t.chooseTeam}</Link>
+            <Link to="/partner" className="border-b-2 border-gray-200 pb-2 hover:text-red-500">{t.partner}</Link>
+            <Link to="/tokushoho" className="border-b-2 border-gray-200 pb-2 hover:text-red-500">{t.tokushoho}</Link>
+            <Link to="/privacy" className="border-b-2 border-gray-200 pb-2 hover:text-red-500">{t.privacy}</Link>
+            <Link to="/terms" className="border-b-2 border-gray-200 pb-2 hover:text-red-500">{t.terms}</Link>
+            <Link to="/contact" className="border-b-2 border-gray-200 pb-2 hover:text-red-500">{t.contact}</Link>
+          </div>
+        </div>
+      )}
 
       <div className="flex-grow">
         <Outlet />
@@ -87,7 +116,7 @@ export default function Layout() {
 
       {/* スマホ固定CTA */}
       <div className="fixed bottom-0 left-0 right-0 p-4 flex gap-2 z-50 md:max-w-md md:mx-auto">
-        <a href="https://line.me" className="flex-1 bg-green-500 text-white font-black py-4 rounded-full shadow-[4px_4px_0_0_#000] border-2 border-black text-center">
+        <a href="https://lin.ee/9Xr2oy0" target="_blank" rel="noopener noreferrer" className="flex-1 bg-green-500 text-white font-black py-4 rounded-full shadow-[4px_4px_0_0_#000] border-2 border-black text-center">
           {t.line}
         </a>
         <Link to="/order" className="flex-1 bg-red-500 text-white font-black py-4 rounded-full shadow-[4px_4px_0_0_#000] border-2 border-black text-center">

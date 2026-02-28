@@ -37,6 +37,23 @@ export default function Partner() {
       collabDesc1: 'Our service (AFRICA GIFT) has officially partnered with "Mozambique Inochi wo Tsunagu Kai" to ensure that the production of surprise videos does not end as mere entertainment, but leads to solid support for the local community.',
       collabDesc2: 'A portion of the video sales is not only paid as fair compensation to the performers, but also directly donated to local medical and educational support activities through the organization. Your warm feeling of "wanting to make someone happy" turns into the power to create the future of Africa across the sea.',
       websiteBtn: 'See details on the official website',
+    },
+    zh: {
+      title: '官方合作伙伴',
+      subtitle: '莫桑比克生命相连会',
+      aboutTitle: '组织简介',
+      aboutDesc: '“莫桑比克生命相连会”是一家在位于非洲东南部的莫桑比克共和国提供医疗、教育和创造就业支持的综合社团法人。我们继续开展基层活动，旨在实现当地人民能够独立生活的社会。',
+      activitiesTitle: '主要活动',
+      medicalTitle: '医疗支持',
+      medicalDesc: '我们向当地诊所提供医疗用品，并通过卫生教育开展传染病预防活动。',
+      eduTitle: '教育支持',
+      eduDesc: '我们建设儿童可以安全学习的学校，捐赠学习用品，并运营奖学金计划。',
+      jobTitle: '创造就业（与我们服务合作）',
+      jobDesc: '通过雇佣当地青年作为表演者并支付他们公平的报酬，我们直接支持他们改善生计和实现经济独立。',
+      collabTitle: '关于与AFRICA GIFT的合作',
+      collabDesc1: '我们的服务（AFRICA GIFT）已与“莫桑比克生命相连会”正式合作，以确保惊喜视频的制作不仅停留在娱乐层面，还能为当地社区带来实质性的支持。',
+      collabDesc2: '视频销售的一部分不仅作为公平的报酬支付给表演者，还通过该组织直接捐赠给当地的医疗和教育支持活动。您“想让某人开心”的温暖心意，将跨越海洋，转化为创造非洲未来的力量。',
+      websiteBtn: '在官方网站上查看详情',
     }
   }[language];
 

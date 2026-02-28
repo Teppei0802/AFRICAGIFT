@@ -16,15 +16,19 @@ export default function Tokushoho() {
           </div>
           <div className="border-b-2 border-gray-200 pb-4">
             <h3 className="font-black text-xl mb-2">運営責任者</h3>
-            <p className="text-gray-700 font-bold">山田 太郎</p>
+            <p className="text-gray-700 font-bold">最勝寺 哲平</p>
+          </div>
+          <div className="border-b-2 border-gray-200 pb-4">
+            <h3 className="font-black text-xl mb-2">事業パートナー代表</h3>
+            <p className="text-gray-700 font-bold">榎本 恵</p>
           </div>
           <div className="border-b-2 border-gray-200 pb-4">
             <h3 className="font-black text-xl mb-2">所在地</h3>
-            <p className="text-gray-700 font-bold">〒150-0000 東京都渋谷区〇〇 1-2-3</p>
+            <p className="text-gray-700 font-bold">神奈川県横浜市青葉区大場町930－61</p>
           </div>
           <div className="border-b-2 border-gray-200 pb-4">
             <h3 className="font-black text-xl mb-2">連絡先</h3>
-            <p className="text-gray-700 font-bold">info@africagift.example.com<br />※お電話でのサポートは現在受け付けておりません。お問い合わせフォームよりご連絡ください。</p>
+            <p className="text-gray-700 font-bold">t.saisho0802@gmail.com<br />※お電話でのサポートは現在受け付けておりません。公式LINEもしくは「お問い合わせフォーム」よりご連絡ください。</p>
           </div>
           <div className="border-b-2 border-gray-200 pb-4">
             <h3 className="font-black text-xl mb-2">販売価格</h3>
@@ -44,11 +48,11 @@ export default function Tokushoho() {
           </div>
           <div className="border-b-2 border-gray-200 pb-4">
             <h3 className="font-black text-xl mb-2">商品の引渡時期</h3>
-            <p className="text-gray-700 font-bold">通常プラン：ご注文完了後、3日前後でデータ（動画URL）を納品いたします。<br />特急プラン：ご注文完了後、24時間以内に納品いたします。</p>
+            <p className="text-gray-700 font-bold">通常プラン：ご注文完了後、3日前後でデータ（動画URL）を納品いたします。</p>
           </div>
           <div>
             <h3 className="font-black text-xl mb-2">返品・キャンセルについて</h3>
-            <p className="text-gray-700 font-bold">商品の性質上（オーダーメイドのデジタルコンテンツ）、制作開始後のキャンセルや返品はお受けできません。ただし、当方の不備による重大な欠陥があった場合は、全額返金または再制作にて対応いたします。</p>
+            <p className="text-gray-700 font-bold">商品の性質上（オーダーメイドのデジタルコンテンツ）、制作開始後のキャンセルはお受けできません。ただし、当方の不備による重大な欠陥があった場合は、全額返金または再制作にて対応いたします。</p>
           </div>
         </div>
       </section>
