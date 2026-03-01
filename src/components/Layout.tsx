@@ -7,8 +7,12 @@ import { useLanguage } from '../context/LanguageContext';
 export default function Layout() {
   const { pathname } = useLocation();
   const { cartItems } = useCart();
-  const { language, toggleLanguage } = useLanguage();
+  const { language, setLanguage } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'ja' ? 'en' : 'ja');
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
