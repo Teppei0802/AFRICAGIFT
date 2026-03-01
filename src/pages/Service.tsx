@@ -195,15 +195,15 @@ export default function Service() {
             {t.sec2Title}
           </h2>
           <p className="font-bold mb-3 md:mb-4 text-gray-800 text-xs md:text-base">{t.sec2Desc}</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 font-bold text-gray-800 text-xs md:text-base ml-1 md:ml-4">
-            <div className="flex items-center gap-1 md:gap-2 lg:whitespace-nowrap"><span className="text-red-500 shrink-0">✔</span> {t.teams.muscle}</div>
-            <div className="flex items-center gap-1 md:gap-2 lg:whitespace-nowrap"><span className="text-red-500 shrink-0">✔</span> {t.teams.ladies}</div>
-            <div className="flex items-center gap-1 md:gap-2 lg:whitespace-nowrap"><span className="text-red-500 shrink-0">✔</span> {t.teams.traditional}</div>
-            <div className="flex items-center gap-1 md:gap-2 lg:whitespace-nowrap"><span className="text-red-500 shrink-0">✔</span> {t.teams.street}</div>
-            <div className="flex items-center gap-1 md:gap-2 lg:whitespace-nowrap"><span className="text-red-500 shrink-0">✔</span> {t.teams.love}</div>
-            <div className="flex items-center gap-1 md:gap-2 lg:whitespace-nowrap"><span className="text-red-500 shrink-0">✔</span> {t.teams.wild}</div>
-            <div className="flex items-center gap-1 md:gap-2 lg:whitespace-nowrap"><span className="text-red-500 shrink-0">✔</span> {t.teams.sports}</div>
-            <div className="flex items-center gap-1 md:gap-2 lg:whitespace-nowrap"><span className="text-red-500 shrink-0">✔</span> {t.teams.colorful}</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 font-bold text-gray-800 text-[10px] sm:text-xs md:text-base tracking-tighter sm:tracking-normal ml-1 md:ml-4">
+            <div className="flex items-center gap-1 md:gap-2 whitespace-nowrap"><span className="text-red-500 shrink-0">✔</span> {t.teams.muscle}</div>
+            <div className="flex items-center gap-1 md:gap-2 whitespace-nowrap"><span className="text-red-500 shrink-0">✔</span> {t.teams.ladies}</div>
+            <div className="flex items-center gap-1 md:gap-2 whitespace-nowrap"><span className="text-red-500 shrink-0">✔</span> {t.teams.traditional}</div>
+            <div className="flex items-center gap-1 md:gap-2 whitespace-nowrap"><span className="text-red-500 shrink-0">✔</span> {t.teams.street}</div>
+            <div className="flex items-center gap-1 md:gap-2 whitespace-nowrap"><span className="text-red-500 shrink-0">✔</span> {t.teams.love}</div>
+            <div className="flex items-center gap-1 md:gap-2 whitespace-nowrap"><span className="text-red-500 shrink-0">✔</span> {t.teams.wild}</div>
+            <div className="flex items-center gap-1 md:gap-2 whitespace-nowrap"><span className="text-red-500 shrink-0">✔</span> {t.teams.sports}</div>
+            <div className="flex items-center gap-1 md:gap-2 whitespace-nowrap"><span className="text-red-500 shrink-0">✔</span> {t.teams.colorful}</div>
           </div>
         </div>
 

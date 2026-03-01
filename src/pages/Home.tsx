@@ -14,11 +14,11 @@ export default function Home() {
       chooseTeam: 'Choose Your Team',
       viewAllTeams: 'すべてのチームを見る',
       benefit1Title: 'ORDER MADE',
-      benefit1Text: '世界に一つだけの、\nあなただけの特別演出。',
+      benefit1Text: '世界に一つだけの\nあなただけの\n特別演出',
       benefit2Title: 'GUARANTEE',
-      benefit2Text: '満足いただけなければ\n100％の全額返金保証',
+      benefit2Text: '満足いただけ\nなければ\n100％返金保証',
       benefit3Title: 'SDGs',
-      benefit3Text: '現地の雇用創出に\n直接貢献',
+      benefit3Text: '現地の\n雇用創出に\n直接貢献',
       benefitDesc: 'このサービスは単なる「海外外注」ではありません。私たちは現地コミュニティと日常的に連携し、地域コミュニティへリアルに還元しています。\n仲介を挟まないからこそ、あなたの「HAPPY BIRTHDAY」が、現地の雇用と未来に確実かつ直接的につながります。',
       howToOrder: 'How to Order',
       step1: 'プランとメッセージ\nを選択',
@@ -49,11 +49,11 @@ export default function Home() {
       chooseTeam: 'Choose Your Team',
       viewAllTeams: 'View All Teams',
       benefit1Title: 'ORDER MADE',
-      benefit1Text: 'A special performance\njust for you in the world.',
+      benefit1Text: 'A special\nperformance\njust for you',
       benefit2Title: 'GUARANTEE',
-      benefit2Text: '100% money-back guarantee\nif not satisfied',
+      benefit2Text: '100% money-back\nguarantee\nif not satisfied',
       benefit3Title: 'SDGs',
-      benefit3Text: 'Directly contributing to\nlocal employment',
+      benefit3Text: 'Directly\ncontributing to\nlocal employment',
       benefitDesc: 'This service is not just "overseas outsourcing." We collaborate daily with local communities and give back to them realistically.\nBecause there are no middlemen, your "HAPPY BIRTHDAY" directly and surely connects to local employment and their future.',
       howToOrder: 'How to Order',
       step1: 'Select Plan\n& Message',
@@ -81,7 +81,7 @@ export default function Home() {
   return (
     <main className="max-w-4xl mx-auto px-4 text-center">
       {/* ヒーローセクション */}
-      <section className="py-8 md:py-20 spring-in">
+      <section className="py-12 md:py-20 spring-in">
         <h1 className="pop-heading mb-4 md:mb-6 leading-none md:leading-none flex flex-col gap-1 md:gap-0">
           <span className="text-sm md:text-3xl block text-black">{t.heroTitle1}</span>
           <span className="text-base md:text-4xl">{t.heroTitle2}</span><span className="accent-text !text-2xl md:!text-8xl mt-1 md:mt-0">{t.heroTitle3}</span>
@@ -107,8 +107,8 @@ export default function Home() {
       </section>
 
       {/* チーム紹介（投稿リスト風） */}
-      <section className="py-6 md:py-12 bg-white border-2 md:border-4 border-black rounded-2xl md:rounded-3xl p-3 md:p-8 mb-6 md:mb-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-        <h2 className="pop-heading !text-sm md:!text-4xl mb-4 md:mb-8 whitespace-nowrap">{t.chooseTeam}</h2>
+      <section className="py-10 md:py-12 bg-white border-2 md:border-4 border-black rounded-2xl md:rounded-3xl p-3 md:p-8 mb-10 md:mb-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+        <h2 className="pop-heading !text-lg md:!text-4xl mb-4 md:mb-8 whitespace-nowrap">{t.chooseTeam}</h2>
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-6 text-left mb-6 md:mb-8">
           {teams.slice(0, 4).map((team) => (
             <Link key={team.id} to={`/order/${team.id}`} className="border-2 md:border-4 border-black rounded-xl overflow-hidden hover:rotate-1 transition-transform block group cursor-pointer flex flex-col md:flex-row">
@@ -137,55 +137,55 @@ export default function Home() {
       </section>
 
       {/* 注文ステップ */}
-      <section className="py-6 md:py-12" id="order">
-        <h2 className="pop-heading !text-sm md:!text-4xl mb-4 md:mb-8 whitespace-nowrap">{t.howToOrder}</h2>
+      <section className="py-10 md:py-12" id="order">
+        <h2 className="pop-heading !text-lg md:!text-4xl mb-4 md:mb-8 whitespace-nowrap">{t.howToOrder}</h2>
         <div className="flex flex-row items-center justify-between gap-2 md:gap-4">
           <div className="flex-1 text-center">
-            <div className="w-8 h-8 md:w-16 md:h-16 bg-black text-white rounded-full flex items-center justify-center text-sm md:text-3xl font-black mx-auto mb-2 md:mb-4">1</div>
-            <p className="font-black text-[10px] md:text-base leading-tight whitespace-pre-line">{t.step1}</p>
+            <div className="w-8 h-8 md:w-16 md:h-16 bg-black text-white rounded-full flex items-center justify-center text-base md:text-3xl font-black mx-auto mb-2 md:mb-4">1</div>
+            <p className="font-black text-xs md:text-base leading-tight whitespace-pre-line">{t.step1}</p>
           </div>
-          <div className="text-sm md:text-4xl">➡</div>
+          <div className="text-base md:text-4xl">➡</div>
           <div className="flex-1 text-center">
-            <div className="w-8 h-8 md:w-16 md:h-16 bg-black text-white rounded-full flex items-center justify-center text-sm md:text-3xl font-black mx-auto mb-2 md:mb-4">2</div>
-            <p className="font-black text-[10px] md:text-base leading-tight whitespace-pre-line">{t.step2}</p>
+            <div className="w-8 h-8 md:w-16 md:h-16 bg-black text-white rounded-full flex items-center justify-center text-base md:text-3xl font-black mx-auto mb-2 md:mb-4">2</div>
+            <p className="font-black text-xs md:text-base leading-tight whitespace-pre-line">{t.step2}</p>
           </div>
-          <div className="text-sm md:text-4xl">➡</div>
+          <div className="text-base md:text-4xl">➡</div>
           <div className="flex-1 text-center">
-            <div className="w-8 h-8 md:w-16 md:h-16 bg-red-500 text-white rounded-full flex items-center justify-center text-sm md:text-3xl font-black mx-auto mb-2 md:mb-4">3</div>
-            <p className="font-black italic uppercase text-[10px] md:text-base leading-tight">{t.step3}</p>
+            <div className="w-8 h-8 md:w-16 md:h-16 bg-red-500 text-white rounded-full flex items-center justify-center text-base md:text-3xl font-black mx-auto mb-2 md:mb-4">3</div>
+            <p className="font-black italic uppercase text-xs md:text-base leading-tight">{t.step3}</p>
           </div>
         </div>
       </section>
 
       {/* ベネフィットセクション */}
-      <section className="py-6 md:py-12">
+      <section className="py-10 md:py-12">
         <div className="grid grid-cols-3 gap-2 md:gap-6 mb-8">
           <div className="pop-card p-2 md:p-6 text-left">
-            <div className="text-xl md:text-4xl mb-1 md:mb-4">✨</div>
-            <h3 className="text-[10px] md:text-xl font-black mb-1 md:mb-2 uppercase italic">{t.benefit1Title}</h3>
-            <p className="text-[8px] md:text-base leading-relaxed font-bold whitespace-pre-line">{t.benefit1Text}</p>
+            <div className="text-2xl md:text-4xl mb-1 md:mb-4">✨</div>
+            <h3 className="text-xs md:text-xl font-black mb-1 md:mb-2 uppercase italic">{t.benefit1Title}</h3>
+            <p className="text-[10px] md:text-base leading-relaxed font-bold whitespace-pre-line">{t.benefit1Text}</p>
           </div>
           <div className="pop-card p-2 md:p-6 text-left">
-            <div className="text-xl md:text-4xl mb-1 md:mb-4">💰</div>
-            <h3 className="text-[10px] md:text-xl font-black mb-1 md:mb-2 uppercase italic">{t.benefit2Title}</h3>
-            <p className="text-[8px] md:text-base leading-relaxed font-bold whitespace-pre-line">{t.benefit2Text}</p>
+            <div className="text-2xl md:text-4xl mb-1 md:mb-4">💰</div>
+            <h3 className="text-xs md:text-xl font-black mb-1 md:mb-2 uppercase italic">{t.benefit2Title}</h3>
+            <p className="text-[10px] md:text-base leading-relaxed font-bold whitespace-pre-line">{t.benefit2Text}</p>
           </div>
           <div className="pop-card p-2 md:p-6 text-left">
-            <div className="text-xl md:text-4xl mb-1 md:mb-4">🌍</div>
-            <h3 className="text-[10px] md:text-xl font-black mb-1 md:mb-2 uppercase italic">{t.benefit3Title}</h3>
-            <p className="text-[8px] md:text-base leading-relaxed font-bold whitespace-pre-line">{t.benefit3Text}</p>
+            <div className="text-2xl md:text-4xl mb-1 md:mb-4">🌍</div>
+            <h3 className="text-xs md:text-xl font-black mb-1 md:mb-2 uppercase italic">{t.benefit3Title}</h3>
+            <p className="text-[10px] md:text-base leading-relaxed font-bold whitespace-pre-line">{t.benefit3Text}</p>
           </div>
         </div>
         <div className="text-left px-2 md:px-8">
-          <p className="text-[10px] md:text-lg font-bold leading-relaxed whitespace-pre-line">
+          <p className="text-xs md:text-lg font-bold leading-relaxed whitespace-pre-line">
             {t.benefitDesc}
           </p>
         </div>
       </section>
 
       {/* こんなシーンで使われています */}
-      <section className="py-6 md:py-12">
-        <h2 className="pop-heading !text-sm md:!text-4xl mb-4 md:mb-8 whitespace-nowrap">{t.useCasesTitle}</h2>
+      <section className="py-10 md:py-12">
+        <h2 className="pop-heading !text-lg md:!text-4xl mb-4 md:mb-8 whitespace-nowrap">{t.useCasesTitle}</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
           {t.useCases.map((scene, index) => (
             <div key={index} className="bg-white border-2 md:border-4 border-black rounded-xl p-3 md:p-4 shadow-[4px_4px_0_0_#000] flex items-center justify-center text-center hover:-translate-y-1 transition-transform">
@@ -196,7 +196,7 @@ export default function Home() {
       </section>
 
       {/* パートナー団体 */}
-      <section className="py-6 md:py-12">
+      <section className="py-10 md:py-12">
         <div className="bg-white border-2 md:border-4 border-black rounded-2xl md:rounded-3xl p-3 md:p-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] text-left relative overflow-hidden">
           <div className="absolute top-0 right-0 bg-yellow-400 border-b-2 md:border-b-4 border-l-2 md:border-l-4 border-black px-2 py-1 md:px-6 md:py-2 font-black italic text-[8px] md:text-base">
             OFFICIAL PARTNER
@@ -221,7 +221,7 @@ export default function Home() {
       </section>
 
       {/* エシカル宣言 */}
-      <section className="py-6 md:py-16 bg-black text-white rounded-xl my-6 md:my-12 p-3 md:p-8">
+      <section className="py-10 md:py-16 bg-black text-white rounded-xl my-10 md:my-12 p-3 md:p-8">
         <h2 className="text-lg md:text-3xl font-black mb-3 md:mb-6 italic uppercase">Beyond a Surprise</h2>
         <p className="text-[10px] md:text-lg leading-relaxed text-center mb-4 md:mb-8 max-w-2xl mx-auto">
           {language === 'en' ? (
@@ -264,8 +264,8 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="py-4 md:py-12 text-left">
-        <h2 className="pop-heading !text-sm md:!text-4xl mb-4 md:mb-8 text-center underline decoration-red-500 decoration-4 md:decoration-8">{t.faqTitle}</h2>
+      <section className="py-10 md:py-12 text-left">
+        <h2 className="pop-heading !text-lg md:!text-4xl mb-4 md:mb-8 text-center underline decoration-red-500 decoration-4 md:decoration-8">{t.faqTitle}</h2>
         <div className="space-y-2 md:space-y-4">
           <details className="pop-card p-2 md:p-6 group">
             <summary className="list-none font-black text-[10px] md:text-xl cursor-pointer flex justify-between items-center">
