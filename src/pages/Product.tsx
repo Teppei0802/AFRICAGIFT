@@ -15,6 +15,14 @@ export default function Product() {
   const [photoPrint, setPhotoPrint] = useState(false);
   const [photoKiss, setPhotoKiss] = useState(false);
   const [cakeOption, setCakeOption] = useState('0');
+  
+  const [readMsg, setReadMsg] = useState('');
+  const [boardMsg, setBoardMsg] = useState('');
+  const [email, setEmail] = useState('');
+  const [errors, setErrors] = useState({ readMsg: false, boardMsg: false, email: false });
+
+  const MAX_READ_MSG = 40;
+  const MAX_BOARD_MSG = 30;
 
   const t = {
     ja: {
@@ -99,6 +107,26 @@ export default function Product() {
   totalPrice += parseInt(cakeOption, 10);
 
   const handleAddToCart = () => {
+    const newErrors = {
+      readMsg: readMsg.trim() === '' || readMsg.length > MAX_READ_MSG,
+      boardMsg: boardMsg.trim() === '' || boardMsg.length > MAX_BOARD_MSG,
+      email: email.trim() === ''
+    };
+
+    setErrors(newErrors);
+
+    if (newErrors.readMsg || newErrors.boardMsg || newErrors.email) {
+      // Scroll to the first error
+      if (newErrors.readMsg) {
+        document.getElementById('readMsgInput')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (newErrors.boardMsg) {
+        document.getElementById('boardMsgInput')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (newErrors.email) {
+        document.getElementById('emailInput')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
+
     addToCart({
       id: Date.now().toString(),
       team,
@@ -147,41 +175,62 @@ export default function Product() {
           <form className="space-y-3 md:space-y-8 text-left">
             
             {/* 読み上げメッセージ */}
-            <div className="pop-card p-3 md:p-6">
-              <label className="block font-black text-xs md:text-lg mb-1 md:mb-2">
+            <div className="pop-card p-3 md:p-6" id="readMsgInput">
+              <label className={`block font-black text-xs md:text-lg mb-1 md:mb-2 ${errors.readMsg ? 'text-red-500' : ''}`}>
                 {t.readMsg} <span className="text-red-500">*</span>
               </label>
               <p className="text-[8px] md:text-xs text-gray-500 mb-1 md:mb-3 font-bold">{t.readMsgDesc}</p>
               <textarea 
-                className="w-full border-2 md:border-4 border-black rounded-lg p-2 md:p-3 text-xs md:text-base font-bold focus:outline-none focus:border-red-500 transition-colors" 
+                className={`w-full border-2 md:border-4 ${errors.readMsg ? 'border-red-500' : 'border-black'} rounded-lg p-2 md:p-3 text-xs md:text-base font-bold focus:outline-none focus:border-red-500 transition-colors`} 
                 rows={3} 
                 placeholder={t.readMsgPlaceholder}
+                value={readMsg}
+                onChange={(e) => {
+                  setReadMsg(e.target.value);
+                  if (errors.readMsg) setErrors({ ...errors, readMsg: false });
+                }}
               ></textarea>
+              <div className="text-right text-[10px] md:text-xs text-gray-400 mt-1">
+                {readMsg.length}/{MAX_READ_MSG}
+              </div>
             </div>
 
             {/* 黒板に書くメッセージ */}
-            <div className="pop-card p-3 md:p-6">
-              <label className="block font-black text-xs md:text-lg mb-1 md:mb-2">
+            <div className="pop-card p-3 md:p-6" id="boardMsgInput">
+              <label className={`block font-black text-xs md:text-lg mb-1 md:mb-2 ${errors.boardMsg ? 'text-red-500' : ''}`}>
                 {t.boardMsg} <span className="text-red-500">*</span>
               </label>
               <p className="text-[8px] md:text-xs text-gray-500 mb-1 md:mb-3 font-bold">{t.boardMsgDesc}</p>
               <input 
                 type="text" 
-                className="w-full border-2 md:border-4 border-black rounded-lg p-2 md:p-3 text-xs md:text-base font-bold focus:outline-none focus:border-red-500 transition-colors" 
+                className={`w-full border-2 md:border-4 ${errors.boardMsg ? 'border-red-500' : 'border-black'} rounded-lg p-2 md:p-3 text-xs md:text-base font-bold focus:outline-none focus:border-red-500 transition-colors`} 
                 placeholder={t.boardMsgPlaceholder}
+                value={boardMsg}
+                onChange={(e) => {
+                  setBoardMsg(e.target.value);
+                  if (errors.boardMsg) setErrors({ ...errors, boardMsg: false });
+                }}
               />
+              <div className="text-right text-[10px] md:text-xs text-gray-400 mt-1">
+                {boardMsg.length}/{MAX_BOARD_MSG}
+              </div>
             </div>
 
             {/* 送信先メールアドレス */}
-            <div className="pop-card p-3 md:p-6">
-              <label className="block font-black text-xs md:text-lg mb-1 md:mb-2">
+            <div className="pop-card p-3 md:p-6" id="emailInput">
+              <label className={`block font-black text-xs md:text-lg mb-1 md:mb-2 ${errors.email ? 'text-red-500' : ''}`}>
                 {language === 'en' ? 'Email Address' : '送信先メールアドレス'} <span className="text-red-500">*</span>
               </label>
               <p className="text-[8px] md:text-xs text-gray-500 mb-1 md:mb-3 font-bold">{language === 'en' ? 'We will send the download link for the completed video' : '完成した動画のダウンロードリンクをお送りします'}</p>
               <input 
                 type="email" 
-                className="w-full border-2 md:border-4 border-black rounded-lg p-2 md:p-3 text-xs md:text-base font-bold focus:outline-none focus:border-red-500 transition-colors" 
+                className={`w-full border-2 md:border-4 ${errors.email ? 'border-red-500' : 'border-black'} rounded-lg p-2 md:p-3 text-xs md:text-base font-bold focus:outline-none focus:border-red-500 transition-colors`} 
                 placeholder="your@email.com" 
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  if (errors.email) setErrors({ ...errors, email: false });
+                }}
               />
             </div>
 

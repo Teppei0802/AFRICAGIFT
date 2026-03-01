@@ -21,7 +21,7 @@ export default function Home() {
       benefit3Text: '現地の\n雇用創出に\n直接貢献',
       benefitDesc: 'このサービスは単なる「海外外注」ではありません。私たちは現地コミュニティと日常的に連携し、地域コミュニティへリアルに還元しています。\n仲介を挟まないからこそ、あなたの「HAPPY BIRTHDAY」が、現地の雇用と未来に確実かつ直接的につながります。',
       howToOrder: 'How to Order',
-      step1: 'プランとメッセージ\nを選択',
+      step1: 'チームと\nメッセージを選択',
       step2: '決済完了後、\n現地へ発注',
       step3: 'Get Video!',
       useCasesTitle: 'こんなシーンで使われています！',
@@ -56,7 +56,7 @@ export default function Home() {
       benefit3Text: 'Directly\ncontributing to\nlocal employment',
       benefitDesc: 'This service is not just "overseas outsourcing." We collaborate daily with local communities and give back to them realistically.\nBecause there are no middlemen, your "HAPPY BIRTHDAY" directly and surely connects to local employment and their future.',
       howToOrder: 'How to Order',
-      step1: 'Select Plan\n& Message',
+      step1: 'Select Team\n& Message',
       step2: 'Order Placed\nAfter Payment',
       step3: 'Get Video!',
       useCasesTitle: 'Perfect for these occasions',
@@ -162,8 +162,8 @@ export default function Home() {
         <div className="grid grid-cols-3 gap-2 md:gap-6 mb-8">
           <div className="pop-card p-2 md:p-6 text-left">
             <div className="text-2xl md:text-4xl mb-1 md:mb-4">✨</div>
-            <h3 className="text-xs md:text-xl font-black mb-1 md:mb-2 uppercase italic">{t.benefit1Title}</h3>
-            <p className="text-[10px] md:text-base leading-relaxed font-bold whitespace-pre-line">{t.benefit1Text}</p>
+            <h3 className="text-xs md:text-xl font-black mb-1 md:mb-2 uppercase italic">Quick Order</h3>
+            <p className="text-[10px] md:text-base leading-relaxed font-bold whitespace-pre-line">最短1分で動画を注文</p>
           </div>
           <div className="pop-card p-2 md:p-6 text-left">
             <div className="text-2xl md:text-4xl mb-1 md:mb-4">💰</div>
