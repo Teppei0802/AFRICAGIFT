@@ -8,6 +8,9 @@ export type CartItem = {
   photoPrint: boolean;
   photoKiss: boolean;
   cakeOption: string;
+  readMsg: string;
+  boardMsg: string;
+  email: string;
 };
 
 type CartContextType = {

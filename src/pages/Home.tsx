@@ -163,7 +163,7 @@ export default function Home() {
           <div className="pop-card p-2 md:p-6 text-left">
             <div className="text-2xl md:text-4xl mb-1 md:mb-4">✨</div>
             <h3 className="text-xs md:text-xl font-black mb-1 md:mb-2 uppercase italic">Quick Order</h3>
-            <p className="text-[10px] md:text-base leading-relaxed font-bold whitespace-pre-line">最短1分で動画を注文</p>
+            <p className="text-[10px] md:text-base leading-relaxed font-bold whitespace-pre-line">最短1分で動画を{'\n'}注文</p>
           </div>
           <div className="pop-card p-2 md:p-6 text-left">
             <div className="text-2xl md:text-4xl mb-1 md:mb-4">💰</div>

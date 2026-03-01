@@ -110,6 +110,11 @@ export default function Cart() {
         stripeItems.push({ price: STRIPE_PRICE_MAP[item.team.id], quantity: 1 });
       }
       
+      // メッセージ情報
+      options.push(`【${language === 'en' ? 'Read Msg' : '読み上げ'}】${item.readMsg}`);
+      options.push(`【${language === 'en' ? 'Board Msg' : '黒板'}】${item.boardMsg}`);
+      options.push(`【${language === 'en' ? 'Email' : 'メール'}】${item.email}`);
+
       // 音楽オプション
       if (item.musicOption === 'youtube' && STRIPE_PRICE_MAP['youtube']) {
         stripeItems.push({ price: STRIPE_PRICE_MAP['youtube'], quantity: 1 });
@@ -222,7 +227,12 @@ export default function Cart() {
                   <h3 className="text-sm md:text-xl font-black uppercase mb-1 md:mb-2 leading-tight">{language === 'en' ? item.team.nameEn || item.team.name : item.team.name}</h3>
                   <p className="text-[10px] md:text-sm text-gray-700 font-bold mb-1">{t.basePrice}: ¥{item.team.basePrice.toLocaleString()}</p>
                   
-                  <div className="mt-1 md:mt-4 space-y-0.5 md:space-y-1 text-[8px] md:text-sm font-bold text-gray-600">
+                  <div className="mt-1 md:mt-4 space-y-1 md:space-y-2 text-[8px] md:text-sm font-bold text-gray-600">
+                    <div className="bg-gray-50 p-2 rounded-lg border border-gray-200">
+                      <p className="text-black mb-1"><span className="text-gray-500 text-[8px] md:text-xs">【{language === 'en' ? 'Read Message' : '読み上げメッセージ'}】</span><br/>{item.readMsg}</p>
+                      <p className="text-black mb-1"><span className="text-gray-500 text-[8px] md:text-xs">【{language === 'en' ? 'Board Message' : '黒板メッセージ'}】</span><br/>{item.boardMsg}</p>
+                      <p className="text-black"><span className="text-gray-500 text-[8px] md:text-xs">【{language === 'en' ? 'Email' : '送信先メールアドレス'}】</span><br/>{item.email}</p>
+                    </div>
                     {item.musicOption === 'youtube' && <p>+ {t.musicYoutube}: ¥1,200</p>}
                     {item.musicOption === 'birthday' && <p>+ {t.musicBday}: ¥500</p>}
                     {item.photoPrint && <p>+ {t.photoPrint}: ¥1,000</p>}

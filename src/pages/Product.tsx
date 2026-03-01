@@ -134,7 +134,10 @@ export default function Product() {
       musicOption,
       photoPrint,
       photoKiss,
-      cakeOption
+      cakeOption,
+      readMsg,
+      boardMsg,
+      email
     });
     navigate('/cart');
   };
