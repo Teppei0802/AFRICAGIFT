@@ -19,7 +19,8 @@ export default function Product() {
   const [readMsg, setReadMsg] = useState('');
   const [boardMsg, setBoardMsg] = useState('');
   const [email, setEmail] = useState('');
-  const [errors, setErrors] = useState({ readMsg: false, boardMsg: false, email: false });
+  const [birthdayDate, setBirthdayDate] = useState('');
+  const [errors, setErrors] = useState({ readMsg: false, boardMsg: false, email: false, birthdayDate: false });
 
   const MAX_READ_MSG = 40;
   const MAX_BOARD_MSG = 30;
@@ -44,8 +45,7 @@ export default function Product() {
       photoKiss: '写真へのキス (+¥200)',
       cakeOpt: 'ケーキ寄付オプション',
       cakeNone: 'なし',
-      cakeSmall: '誕生日ケーキの寄付（小） (+¥1,500)',
-      cakeLarge: '誕生日ケーキの寄付（大） (+¥2,000)',
+      cakeDonate: 'ケーキを寄付 (+¥2,500)',
       total: '合計',
       addToCart: 'カートに追加する',
       customerReviews: 'CUSTOMER REVIEWS',
@@ -75,8 +75,7 @@ export default function Product() {
       photoKiss: 'Kiss on Photo (+¥200)',
       cakeOpt: 'Cake Donation Options',
       cakeNone: 'None',
-      cakeSmall: 'Donate Birthday Cake (Small) (+¥1,500)',
-      cakeLarge: 'Donate Birthday Cake (Large) (+¥2,000)',
+      cakeDonate: 'Donate a Cake (+¥2,500)',
       total: 'Total',
       addToCart: 'Add to Cart',
       customerReviews: 'CUSTOMER REVIEWS',
@@ -110,12 +109,13 @@ export default function Product() {
     const newErrors = {
       readMsg: readMsg.trim() === '' || readMsg.length > MAX_READ_MSG,
       boardMsg: boardMsg.trim() === '' || boardMsg.length > MAX_BOARD_MSG,
-      email: email.trim() === ''
+      email: email.trim() === '',
+      birthdayDate: birthdayDate.trim() === ''
     };
 
     setErrors(newErrors);
 
-    if (newErrors.readMsg || newErrors.boardMsg || newErrors.email) {
+    if (newErrors.readMsg || newErrors.boardMsg || newErrors.email || newErrors.birthdayDate) {
       // Scroll to the first error
       if (newErrors.readMsg) {
         document.getElementById('readMsgInput')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -123,6 +123,8 @@ export default function Product() {
         document.getElementById('boardMsgInput')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else if (newErrors.email) {
         document.getElementById('emailInput')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (newErrors.birthdayDate) {
+        document.getElementById('birthdayInput')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
       return;
     }
@@ -137,7 +139,8 @@ export default function Product() {
       cakeOption,
       readMsg,
       boardMsg,
-      email
+      email,
+      birthdayDate
     });
     navigate('/cart');
   };
@@ -233,6 +236,23 @@ export default function Product() {
                 onChange={(e) => {
                   setEmail(e.target.value);
                   if (errors.email) setErrors({ ...errors, email: false });
+                }}
+              />
+            </div>
+
+            {/* 誕生日のお日にち */}
+            <div className="pop-card p-3 md:p-6" id="birthdayInput">
+              <label className={`block font-black text-xs md:text-lg mb-1 md:mb-2 ${errors.birthdayDate ? 'text-red-500' : ''}`}>
+                {language === 'en' ? 'Birthday Date' : '誕生日のお日にち'} <span className="text-red-500">*</span>
+              </label>
+              <p className="text-[8px] md:text-xs text-gray-500 mb-1 md:mb-3 font-bold">{language === 'en' ? 'To grasp the date you present the video to meet the deadline.' : '納期に間に合わせるために動画をプレゼントする日にちを把握します。'}</p>
+              <input 
+                type="date" 
+                className={`w-full border-2 md:border-4 ${errors.birthdayDate ? 'border-red-500' : 'border-black'} rounded-lg p-2 md:p-3 text-xs md:text-base font-bold focus:outline-none focus:border-red-500 transition-colors`} 
+                value={birthdayDate}
+                onChange={(e) => {
+                  setBirthdayDate(e.target.value);
+                  if (errors.birthdayDate) setErrors({ ...errors, birthdayDate: false });
                 }}
               />
             </div>
@@ -333,8 +353,7 @@ export default function Product() {
                 className="w-full border-2 md:border-4 border-black rounded-lg p-2 md:p-3 text-[10px] md:text-base font-bold bg-white focus:outline-none focus:border-red-500 cursor-pointer"
               >
                 <option value="0">{t.cakeNone}</option>
-                <option value="1500">{t.cakeSmall}</option>
-                <option value="2000">{t.cakeLarge}</option>
+                <option value="2500">{t.cakeDonate}</option>
               </select>
             </div>
 

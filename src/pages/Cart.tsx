@@ -16,14 +16,14 @@ const STRIPE_PRICE_MAP: Record<string, string> = {
   'birthday': 'price_1T57odFwh77nhVIt4u16F50h',
   'photoPrint': 'price_1T57pZFwh77nhVIt6JGO8pcj',
   'photoKiss': 'price_1T57qwFwh77nhVItGYgUgo2b',
-  'cake1500': 'price_1T57sEFwh77nhVIt4EWuV9jc',
-  'cake2000': 'price_1T57tIFwh77nhVIty24zgFd0',
+  'cake': 'price_1T57sEFwh77nhVIt4EWuV9jc', // TODO: Update with actual Stripe price ID for 2500 yen cake
 };
 
 export default function Cart() {
   const { cartItems, removeFromCart } = useCart();
   const [isCheckingOut, setIsCheckingOut] = useState(false);
   const [donationUnits, setDonationUnits] = useState(0);
+  const [agreedToDisclaimer, setAgreedToDisclaimer] = useState(false);
   const { language } = useLanguage();
   
   const donationAmount = donationUnits * 500;
@@ -83,6 +83,10 @@ export default function Cart() {
 
   const handleCheckout = async () => {
     if (cartItems.length === 0) return;
+    if (!agreedToDisclaimer) {
+      alert(language === 'en' ? 'Please agree to the important notice regarding orders.' : 'ご注文に関する重要なお知らせに同意してください。');
+      return;
+    }
     
     setIsCheckingOut(true);
     
@@ -114,6 +118,7 @@ export default function Cart() {
       options.push(`【${language === 'en' ? 'Read Msg' : '読み上げ'}】${item.readMsg}`);
       options.push(`【${language === 'en' ? 'Board Msg' : '黒板'}】${item.boardMsg}`);
       options.push(`【${language === 'en' ? 'Email' : 'メール'}】${item.email}`);
+      options.push(`【${language === 'en' ? 'Birthday' : '誕生日'}】${item.birthdayDate}`);
 
       // 音楽オプション
       if (item.musicOption === 'youtube' && STRIPE_PRICE_MAP['youtube']) {
@@ -135,12 +140,9 @@ export default function Cart() {
       }
 
       // ケーキオプション
-      if (item.cakeOption === '1500' && STRIPE_PRICE_MAP['cake1500']) {
-        stripeItems.push({ price: STRIPE_PRICE_MAP['cake1500'], quantity: 1 });
-        options.push(`${t.cakeOpt}(${t.cakeSmall})`);
-      } else if (item.cakeOption === '2000' && STRIPE_PRICE_MAP['cake2000']) {
-        stripeItems.push({ price: STRIPE_PRICE_MAP['cake2000'], quantity: 1 });
-        options.push(`${t.cakeOpt}(${t.cakeLarge})`);
+      if (item.cakeOption === '2500' && STRIPE_PRICE_MAP['cake']) {
+        stripeItems.push({ price: STRIPE_PRICE_MAP['cake'], quantity: 1 });
+        options.push(`${t.cakeOpt}`);
       }
 
       if (options.length > 0) {
@@ -231,14 +233,14 @@ export default function Cart() {
                     <div className="bg-gray-50 p-2 rounded-lg border border-gray-200">
                       <p className="text-black mb-1"><span className="text-gray-500 text-[8px] md:text-xs">【{language === 'en' ? 'Read Message' : '読み上げメッセージ'}】</span><br/>{item.readMsg}</p>
                       <p className="text-black mb-1"><span className="text-gray-500 text-[8px] md:text-xs">【{language === 'en' ? 'Board Message' : '黒板メッセージ'}】</span><br/>{item.boardMsg}</p>
-                      <p className="text-black"><span className="text-gray-500 text-[8px] md:text-xs">【{language === 'en' ? 'Email' : '送信先メールアドレス'}】</span><br/>{item.email}</p>
+                      <p className="text-black mb-1"><span className="text-gray-500 text-[8px] md:text-xs">【{language === 'en' ? 'Email' : '送信先メールアドレス'}】</span><br/>{item.email}</p>
+                      <p className="text-black"><span className="text-gray-500 text-[8px] md:text-xs">【{language === 'en' ? 'Birthday Date' : '誕生日のお日にち'}】</span><br/>{item.birthdayDate}</p>
                     </div>
                     {item.musicOption === 'youtube' && <p>+ {t.musicYoutube}: ¥1,200</p>}
                     {item.musicOption === 'birthday' && <p>+ {t.musicBday}: ¥500</p>}
                     {item.photoPrint && <p>+ {t.photoPrint}: ¥1,000</p>}
                     {item.photoKiss && <p>+ {t.photoKiss}: ¥200</p>}
-                    {item.cakeOption === '1500' && <p>+ {t.cakeOpt}({t.cakeSmall}): ¥1,500</p>}
-                    {item.cakeOption === '2000' && <p>+ {t.cakeOpt}({t.cakeLarge}): ¥2,000</p>}
+                    {item.cakeOption === '2500' && <p>+ {t.cakeOpt}: ¥2,500</p>}
                   </div>
                 </div>
                 <div className="text-right flex flex-col justify-end shrink-0">
@@ -253,6 +255,28 @@ export default function Cart() {
           </div>
 
           <div className="border-t-2 md:border-t-4 border-black pt-4 md:pt-6 mb-4 md:mb-6">
+            <div className="bg-red-50 border-2 border-red-500 rounded-xl p-4 mb-6 text-left">
+              <h3 className="text-red-600 font-black text-sm md:text-lg mb-2 flex items-center gap-2">
+                <span className="text-lg md:text-xl">⚠️</span> {language === 'en' ? 'Important Notice Regarding Orders' : 'ご注文に関する重要なお知らせ'}
+              </h3>
+              <p className="text-gray-800 font-bold text-xs md:text-sm leading-relaxed mb-3">
+                {language === 'en' ? 
+                  'Due to the unpredictable weather conditions in Mozambique, filming may be suddenly postponed or become impossible. In the event that we are unable to fulfill your order, we will provide a full refund.' : 
+                  'モザンビークという地域は、天候が激しく変化するため、急遽撮影が延期されたり、できなくなる可能性があります。その場合、全額返金を行わせていただきます。'}
+              </p>
+              <label className="flex items-start gap-2 cursor-pointer">
+                <input 
+                  type="checkbox" 
+                  checked={agreedToDisclaimer}
+                  onChange={(e) => setAgreedToDisclaimer(e.target.checked)}
+                  className="mt-1 w-4 h-4 md:w-5 md:h-5 accent-red-500 shrink-0"
+                />
+                <span className="font-bold text-xs md:text-sm text-red-600">
+                  {language === 'en' ? 'I agree to the above terms' : '上記の内容に同意します'}
+                </span>
+              </label>
+            </div>
+
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <div className="text-left w-full md:w-auto">
                 <h3 className="text-sm md:text-lg font-black flex items-center gap-2">
@@ -296,7 +320,7 @@ export default function Cart() {
               </div>
               <button 
                 onClick={handleCheckout}
-                disabled={isCheckingOut}
+                disabled={isCheckingOut || !agreedToDisclaimer}
                 className="bg-black text-white font-black py-2 px-3 md:py-4 md:px-12 rounded-full uppercase text-[10px] md:text-xl transition-transform hover:scale-105 active:scale-95 border-2 border-black shadow-[2px_2px_0_0_#ef4444] md:shadow-[4px_4px_0_0_#ef4444] disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed whitespace-nowrap"
               >
                 {isCheckingOut ? t.processing : t.checkoutBtn}

@@ -11,6 +11,7 @@ export type CartItem = {
   readMsg: string;
   boardMsg: string;
   email: string;
+  birthdayDate: string;
 };
 
 type CartContextType = {

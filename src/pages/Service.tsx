@@ -22,8 +22,7 @@ export default function Service() {
       sec3Item2: 'バースデーソング',
       sec3Item3: '写真プリントアウト',
       sec3Item4: '写真へのキス',
-      sec3Item5: '誕生日ケーキの寄付（小）',
-      sec3Item6: '誕生日ケーキの寄付（大）',
+      sec3Item5: 'ケーキを寄付',
       sec4Title: '現地と密接に関わるリアルなサービス',
       sec4Desc1: 'このプロジェクトは、単なる外注型の動画制作ではありません。\n私たちは現地の仲間と直接つながり、撮影チーム、ダンサー、コミュニティメンバー、地域リーダーと日常的にコミュニケーションを取りながら運営しています。',
       sec4Desc2: '売上の一部は、以下のように現地コミュニティへ還元されています。',
@@ -71,8 +70,7 @@ export default function Service() {
       sec3Item2: 'Birthday song',
       sec3Item3: 'Photo printout',
       sec3Item4: 'Kiss on the photo',
-      sec3Item5: 'Birthday cake donation (Small)',
-      sec3Item6: 'Birthday cake donation (Large)',
+      sec3Item5: 'Donate a cake',
       sec4Title: 'A Real Service Closely Connected to the Local Community',
       sec4Desc1: 'This project is not just outsourced video production.\nWe connect directly with our local friends and operate while communicating daily with the filming team, dancers, community members, and local leaders.',
       sec4Desc2: 'A portion of the sales is returned to the local community as follows.',
@@ -120,8 +118,7 @@ export default function Service() {
       sec3Item2: '生日歌',
       sec3Item3: '照片打印',
       sec3Item4: '亲吻照片',
-      sec3Item5: '生日蛋糕捐赠（小）',
-      sec3Item6: '生日蛋糕捐赠（大）',
+      sec3Item5: '捐赠蛋糕',
       sec4Title: '与当地社区紧密相连的真实服务',
       sec4Desc1: '这个项目不仅仅是外包视频制作。\n我们直接与当地朋友联系，在与拍摄团队、舞者、社区成员和当地领导人进行日常沟通的同时进行运营。',
       sec4Desc2: '部分销售额将通过以下方式回馈当地社区。',
@@ -218,7 +215,6 @@ export default function Service() {
             <li className="flex items-center gap-2"><span className="text-lg md:text-2xl">📸</span> {t.sec3Item3}</li>
             <li className="flex items-center gap-2"><span className="text-lg md:text-2xl">💋</span> {t.sec3Item4}</li>
             <li className="flex items-center gap-2"><span className="text-lg md:text-2xl">🍰</span> {t.sec3Item5}</li>
-            <li className="flex items-center gap-2"><span className="text-lg md:text-2xl">🎂</span> {t.sec3Item6}</li>
           </ul>
         </div>
 

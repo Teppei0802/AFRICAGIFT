@@ -20,10 +20,8 @@ export default function Order() {
       optPhotoDesc: '主役の方の写真をA4サイズで印刷し、パフォーマーが手に持って動画に登場します。',
       optKiss: '写真へのキス',
       optKissDesc: 'プリントアウトした写真にパフォーマーが熱いキスを贈る、笑いを取れるオプションです。',
-      optCakeSmall: '誕生日ケーキの寄付（小）',
-      optCakeSmallDesc: 'パフォーマーたちに小さなケーキをプレゼントし、一緒に食べる様子を動画に収めます。',
-      optCakeLarge: '誕生日ケーキの寄付（大）',
-      optCakeLargeDesc: 'パフォーマーたちに大きなケーキをプレゼントし、みんなで盛大にお祝いする様子を動画に収めます。',
+      optCake: 'ケーキを寄付',
+      optCakeDesc: 'パフォーマーたちにケーキをプレゼントし、一緒に食べる様子を動画に収めます。',
     },
     en: {
       titleEn: 'CHOOSE YOUR TEAM',
@@ -39,10 +37,8 @@ export default function Order() {
       optPhotoDesc: 'Print a photo of the main person in A4 size, and the performers will hold it in the video.',
       optKiss: 'Kiss on Photo',
       optKissDesc: 'A funny option where performers give a passionate kiss to the printed photo.',
-      optCakeSmall: 'Donate Birthday Cake (Small)',
-      optCakeSmallDesc: 'Gift a small cake to the performers and record them eating it together.',
-      optCakeLarge: 'Donate Birthday Cake (Large)',
-      optCakeLargeDesc: 'Gift a large cake to the performers and record them celebrating grandly together.',
+      optCake: 'Donate a Cake',
+      optCakeDesc: 'Gift a cake to the performers and record them eating it together.',
     }
   }[language];
 
@@ -132,15 +128,9 @@ export default function Order() {
           </div>
           <div>
             <h4 className="font-black text-[10px] sm:text-xs md:text-lg mb-1 md:mb-2 flex items-center gap-1 md:gap-2 whitespace-nowrap">
-              <span className="text-sm md:text-2xl">🍰</span> {t.optCakeSmall} (+¥1,500)
+              <span className="text-sm md:text-2xl">🍰</span> {t.optCake} (+¥2,500)
             </h4>
-            <p className="text-[8px] sm:text-[10px] md:text-sm text-gray-700">{t.optCakeSmallDesc}</p>
-          </div>
-          <div>
-            <h4 className="font-black text-[10px] sm:text-xs md:text-lg mb-1 md:mb-2 flex items-center gap-1 md:gap-2 whitespace-nowrap">
-              <span className="text-sm md:text-2xl">🎂</span> {t.optCakeLarge} (+¥2,000)
-            </h4>
-            <p className="text-[8px] sm:text-[10px] md:text-sm text-gray-700">{t.optCakeLargeDesc}</p>
+            <p className="text-[8px] sm:text-[10px] md:text-sm text-gray-700">{t.optCakeDesc}</p>
           </div>
         </div>
       </section>

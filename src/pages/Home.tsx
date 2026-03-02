@@ -201,7 +201,7 @@ export default function Home() {
           <div className="absolute top-0 right-0 bg-yellow-400 border-b-2 md:border-b-4 border-l-2 md:border-l-4 border-black px-2 py-1 md:px-6 md:py-2 font-black italic text-[8px] md:text-base">
             OFFICIAL PARTNER
           </div>
-          <h2 className="pop-heading !text-sm md:!text-4xl mb-3 md:mb-6 mt-5 md:mt-4 leading-tight whitespace-pre-line">{t.partnerTitle}</h2>
+          <h2 className="pop-heading !text-[11px] sm:!text-sm md:!text-2xl lg:!text-3xl mb-3 md:mb-6 mt-5 md:mt-4 leading-tight whitespace-nowrap tracking-tighter">{t.partnerTitle}</h2>
           <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
             <div className="w-1/2 md:w-1/3">
               <div className="aspect-square bg-gray-200 rounded-xl border-2 md:border-4 border-black overflow-hidden">
@@ -263,6 +263,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 注意書き */}
+      <section className="py-6 md:py-8 text-left bg-red-50 border-4 border-red-500 rounded-2xl p-4 md:p-8 my-8">
+        <h3 className="text-red-600 font-black text-lg md:text-2xl mb-2 md:mb-4 flex items-center gap-2">
+          <span className="text-2xl md:text-3xl">⚠️</span> {language === 'en' ? 'Important Notice Regarding Orders' : 'ご注文に関する重要なお知らせ'}
+        </h3>
+        <p className="text-gray-800 font-bold text-sm md:text-base leading-relaxed">
+          {language === 'en' ? 
+            'Due to the unpredictable weather conditions in Mozambique, filming may be suddenly postponed or become impossible. In the event that we are unable to fulfill your order, we will provide a full refund. We appreciate your understanding.' : 
+            'モザンビークという地域は、天候が激しく変化するため、急遽撮影が延期されたり、できなくなる可能性があります。その場合、全額返金を行わせていただきます。あらかじめご了承くださいますようお願い申し上げます。'}
+        </p>
+      </section>
+
       {/* FAQ */}
       <section className="py-10 md:py-12 text-left">
         <h2 className="pop-heading !text-lg md:!text-4xl mb-4 md:mb-8 text-center underline decoration-red-500 decoration-4 md:decoration-8">{t.faqTitle}</h2>
@@ -273,7 +285,7 @@ export default function Home() {
               <span className="transition-transform group-open:rotate-180 shrink-0 ml-1 md:ml-2">▼</span>
             </summary>
             <p className="mt-1 md:mt-4 pt-1 md:pt-4 border-t border-black text-gray-700 font-bold leading-relaxed text-[8px] md:text-base">
-              {language === 'en' ? 'A. Usually delivered within 2-4 days. It may vary depending on local weather and communication conditions, so we recommend ordering with time to spare.' : 'A. 通常、ご注文から2〜4日程度で納品いたします。現地の天候や通信状況によって前後する場合がございますので、余裕を持ったご注文をおすすめいたします。'}
+              {language === 'en' ? 'A. Usually delivered within 1 week. It may take up to 2 weeks depending on local weather and communication conditions, so we recommend ordering with time to spare.' : 'A. 通常、ご注文から1週間程度で納品いたします。現地の天候や通信状況によっては2週間程度かかる場合がございますので、余裕を持ったご注文をおすすめいたします。'}
             </p>
           </details>
           <details className="pop-card p-2 md:p-6 group">

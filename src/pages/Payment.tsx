@@ -10,8 +10,7 @@ const OPTIONS = [
 
 const CAKE_OPTIONS = [
   { id: 'none', name: '希望しない', price: 0 },
-  { id: 'cake-small', name: '誕生日ケーキ小', price: 1500 },
-  { id: 'cake-large', name: '誕生日ケーキ大', price: 2000 },
+  { id: 'cake', name: '誕生日ケーキ', price: 2500 },
 ];
 
 const STRIPE_PRICE_MAP: Record<string, string> = {
@@ -27,8 +26,7 @@ const STRIPE_PRICE_MAP: Record<string, string> = {
   'birthday': 'price_1T57odFwh77nhVIt4u16F50h',
   'photoPrint': 'price_1T57pZFwh77nhVIt6JGO8pcj',
   'photoKiss': 'price_1T57qwFwh77nhVItGYgUgo2b',
-  'cake-small': 'price_1T57sEFwh77nhVIt4EWuV9jc',
-  'cake-large': 'price_1T57tIFwh77nhVIty24zgFd0',
+  'cake': 'price_1T57sEFwh77nhVIt4EWuV9jc', // TODO: Update with actual Stripe price ID for 2500 yen cake
 };
 
 export default function Payment() {
@@ -85,11 +83,8 @@ export default function Payment() {
       }
     });
 
-    if (cakeOption === 'cake-small' && STRIPE_PRICE_MAP['cake-small']) {
-      stripeItems.push({ price: STRIPE_PRICE_MAP['cake-small'], quantity: 1 });
-    }
-    if (cakeOption === 'cake-large' && STRIPE_PRICE_MAP['cake-large']) {
-      stripeItems.push({ price: STRIPE_PRICE_MAP['cake-large'], quantity: 1 });
+    if (cakeOption === 'cake' && STRIPE_PRICE_MAP['cake']) {
+      stripeItems.push({ price: STRIPE_PRICE_MAP['cake'], quantity: 1 });
     }
 
     if (stripeItems.length === 0) {
@@ -197,7 +192,7 @@ export default function Payment() {
 
         {/* ケーキオプション */}
         <div className="bg-white border-4 border-black rounded-2xl p-6 md:p-8 shadow-[8px_8px_0_0_#000]">
-          <h2 className="text-2xl font-black mb-4 border-b-4 border-black pb-2">3. 誕生日ケーキ (1つのみ)</h2>
+          <h2 className="text-2xl font-black mb-4 border-b-4 border-black pb-2">3. 誕生日ケーキ</h2>
           <div className="space-y-3">
             {CAKE_OPTIONS.map(cake => (
               <label key={cake.id} className="flex items-center justify-between p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-black transition-colors has-[:checked]:border-black has-[:checked]:bg-yellow-100">
