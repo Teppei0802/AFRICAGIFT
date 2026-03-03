@@ -19,7 +19,6 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Contact from './pages/Contact';
 import Partner from './pages/Partner';
-import Voices from './pages/Voices';
 
 export default function App() {
   return (
@@ -30,7 +29,6 @@ export default function App() {
             <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="service" element={<Service />} />
-            <Route path="voices" element={<Voices />} />
             <Route path="order" element={<Order />} />
             <Route path="order/:id" element={<Product />} />
             <Route path="cart" element={<Cart />} />

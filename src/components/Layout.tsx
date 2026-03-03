@@ -22,7 +22,6 @@ export default function Layout() {
   const t = {
     ja: {
       service: 'Service',
-      voices: '出演者の声',
       orderNow: '今すぐ注文',
       footerTitle: '一生忘れないGIFTを！',
       tokushoho: '特定商取引法',
@@ -35,7 +34,6 @@ export default function Layout() {
     },
     en: {
       service: 'Service',
-      voices: 'Voices',
       orderNow: 'Order Now',
       footerTitle: 'An Unforgettable GIFT!',
       tokushoho: 'Legal Info',
@@ -67,7 +65,6 @@ export default function Layout() {
           </div>
           <div className="flex items-center gap-2 md:gap-4">
             <Link to="/service" className="hidden md:block font-black text-[10px] md:text-base uppercase hover:text-red-500 transition-colors">{t.service}</Link>
-            <Link to="/voices" className="hidden md:block font-black text-[10px] md:text-base uppercase hover:text-red-500 transition-colors">{t.voices}</Link>
             <Link to="/cart" className="relative font-black uppercase hover:text-red-500 transition-colors flex items-center">
               <ShoppingCart className="w-4 h-4 md:w-6 md:h-6" />
               {cartItems.length > 0 && (
